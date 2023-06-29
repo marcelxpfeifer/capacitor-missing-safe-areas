@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <title>Capacitor</title>
+  </head>
+  <body>
+    <div class="content"></div>
+    <style>
+      :root {
+        --sat: env(safe-area-inset-top);
+        --sab: env(safe-area-inset-bottom);
+      }
+      body {
+        margin: 0;
+        background-color: red;
+      }
+      .content {
+        margin-top: env(safe-area-inset-top);
+        margin-bottom: env(safe-area-inset-bottom);
+        height: 100%;
+        background-color: white;
+        font-size: 60px;
+        color: black;
+        display: flex;
+        gap: 8px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <script>
+      const sat = document.createElement("p");
+      sat.textContent = `sat: ${getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("--sat")}`;
+      const sab = document.createElement("p");
+      sab.textContent = `sab: ${getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("--sab")}`;
+      document.querySelector(".content").appendChild(sat);
+      document.querySelector(".content").appendChild(sab);
+    </script>
+  </body>
+</html>
